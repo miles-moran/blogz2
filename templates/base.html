@@ -1,0 +1,398 @@
+<!DOCTYPE HTML>
+<HTML>
+    <HEAD>
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
+        <style>
+            body {
+                background-color: white;
+            }
+            .content {
+                grid-area: content;
+                grid-template-areas: "content";
+                margin-left: 1em;
+                margin-top: -1em;
+                }
+            
+            .grid {
+                display: grid;
+                grid-template-columns: 13.5em 75em;
+                grid-template-areas: 
+                "profile task"
+                "profile task"
+                "left content";
+                font-family: 'Work Sans', sans-serif;
+                margin: 3em;
+            }
+            .profile {
+                grid-area: profile;
+                background-color: gray;
+                height: 6em;
+                display: grid;
+                grid-template-columns: 1FR 1FR;
+                grid-template-areas: "profile_photo profile_description";
+                /* border-radius: 10px 0 10px 10px; */ 
+            }
+            .task {
+                grid-area: task;
+                background-color: gray;
+                display: grid;
+                grid-template-rows: 3fr 1fr 1fr;
+                grid-template-areas: "nav"
+                                   "blank"
+                                    "filter";
+                height: 6em;
+            }
+            .nav {
+                grid-area: nav;
+                display: grid;
+                grid-template-columns: 16em 3.5em 10em;
+                grid-template-rows: 1fr;
+                grid-template-areas: "page_title logo toolbar";
+            }
+            .filter {
+                grid-area: filter;
+                height: 1.8em;
+                background-color: white;
+            }
+            .blank {
+                grid-area: blank;
+                background-color: white;
+            }
+            .profile_photo {
+                height: 5em;
+                width: 5em;
+                margin-top: .5em;
+                margin-left: .5em;
+                border: white solid .08em;
+                grid-area: "profile_photo";
+            }
+            .profile_description {
+                height: 6em;
+                width: 6em; 
+                margin-top: .5em;
+                border: black;
+                grid-area: "profile_description";
+                text-align: center;
+                color: white;
+                font-size: .5em
+            }
+            .logo {
+                grid-area: logo;
+            }
+            .toolbar {
+                grid-area: toolbar;
+            }
+            .logo_photo {
+                height: 3em;
+                width: 3em;
+                padding-top: .3em;
+            }
+            .toolbar a {
+                color: white;
+                text-decoration: none;
+                padding: .3em;
+                font-size: 1.4em;
+                margin-left: .7em;
+            }
+            .toolbar a:hover {
+                background-color: #111111;
+            }           
+            .toolbar_buttons {
+                padding-top: .93em;
+                width: 50em;
+            }
+            .foreign_photo {
+                height: 5em;
+                width: 5em;
+                margin-top: .5em;
+                margin-left: .5em;
+              
+                grid-area: "profile_photo";
+            }
+            .foreign_description {
+                height: 5em;
+                width: 5em; 
+                margin-top: .5em;
+                margin-left: .5em;
+                border: black;
+                grid-area: "profile_description";
+            }
+            .foreign {
+                grid-area: foreign;
+                background-color: gray;
+                height: 6em;
+                display: grid;
+                grid-template-columns: 1FR 1FR;
+                grid-template-areas: "profile_photo profile_description";
+                border-radius: 0 10px 0 0;
+                border-top: 1px black solid;
+                border-right: 1px black solid;
+            }
+            .left {
+                grid-area: left;
+                background-color: rgb(182, 179, 179);
+                height: 31em;
+                margin-top: 1em;
+                /* border-radius: 10px 10px 10px 10px; */ 
+                width: 13.4em;
+            }
+        .blog_body {
+            text-overflow: hidden;
+        }
+        .page_title {
+            grid-area: page_title;
+            font-size: 2.3em;
+            padding-top: .2em;
+            padding-left: .4em;
+            color: white;
+        }
+        .blog_written {
+            padding-top: .3em;
+            padding-right: .7em;
+        }
+        .blog_title {
+            font-size: 1.6em;
+            text-decoration: none;
+        }
+        .blog_title a {
+            text-decoration: none;
+            color: black;
+        }
+        .blog_title a:hover {
+            color: white;
+        }
+        .blogs {
+            grid-area: blogs;
+            background-color: rgb(202, 202, 202);
+            height: 11em;
+            border-radius: 10px 10px 10px 10px;
+            display: grid;
+            grid-template-columns: 1fr 5.5fr;
+            grid-template-areas: "blog_photo written";
+            text-overflow: hidden;
+        }
+        .blog_photo {
+            height: 10em;
+            width: 10em;
+            margin-top: .5em;
+            margin-left: .5em;
+            border: white solid .08em;
+            }
+        .blogs:nth-child(even) {
+            background-color: gray;
+        }
+        .comments {
+            background-color: rgb(202, 202, 202);
+            border-radius: 10px 0 0 10px;
+            padding: 1.00em;
+            padding-top: 1.14em;
+            width: 67.8em;
+            border: black solid 2px;
+            text-overflow: wrap;
+            word-break: break-all;
+            margin-top: .2em;
+            grid-area: comments;
+            float: right;
+            margin-left: 4em;
+        }
+        .comment_wrapper {
+            display: grid;
+            grid-template-areas:
+            "comment_section form_wrapper";
+            grid-template-columns: 1.25fr 1fr;
+        }
+        .comment_section {
+            grid-area: comment_section;
+            grid-template-areas: 
+            "comments comment_photo";
+        }  
+        .form_wrapper {
+            grid-area: form_wrapper;
+            background-color: gray;
+            height: 11em;
+            margin-left: .1em;
+        }
+        .comment_img {
+            height: 3em;
+            width: 3em;
+            float: left;
+            border: 2px black solid;
+            border-radius: 10px;
+            margin-top: -3.4em;
+        }
+        .comments:nth-child(4n + 1) {
+            background-color: gray;
+        }
+        #comment_submit {
+            margin-left: 1em;
+            border: 1px solid black;
+        }
+        .online {
+            text-decoration: bold;
+            color: green;
+            font-size: 1.4em;
+            margin-left: 1.8em;
+            }
+        </style>
+        {% if blog_query %}
+        <style>
+        .blogs {
+            max-height: none;   
+        }
+        </style>
+        {% endif %}
+    
+    {% if not user_query %}
+        <style>
+            .user_list_title {
+                font-size: 1.4em;
+                color: white;
+                text-align: center;
+                margin-top: .5em;
+            }
+            .user_list_users {
+                color: white;
+            }
+            .user_list_users li {
+                list-style-type: none;
+                color: white;
+                margin-left:-3.1em;
+                padding-left: .2em;
+                font-size: .8em;
+                height: 2.25em;
+                width: 16.5em;
+                padding-top: .2em;
+            }
+            .user_list_users li:hover {
+                background-color: gray;
+            }
+            .user_list_users a {
+                text-decoration: none;
+            }
+            .ul_photo {
+            border-radius: 2em;
+            height: 2em;
+            width: 2em;
+            }
+            .ul_name {
+                font-size: .7em;
+                margin-top: -2.40em;
+                padding-left: 3.5em;
+            }
+        </style>
+    {% endif %}
+    {% if user_query %}
+        <style>
+            .uq_photo {
+                height: 12em;
+                width: 12em;
+                border: 2px white solid;
+                border-bottom: none;
+                margin-left: .6em;
+                margin-top: .5em;
+            }
+            .uq_photo_caption {
+                text-align: center;
+                background-color: white;
+                width: 12.22em;
+                margin-left: .6em;
+                margin-top: -.4em;
+            }
+            .uq_wrapper {
+                border: 2px sold white;
+                width: 5em;
+                height: 2em;
+                background-color: black;
+            }
+            .uq_profile_name {
+                border: 1px white solid;
+                color: white;
+                font-size: .8;
+                margin-left: .6em;
+                width: 12.1em;
+                text-align: center;
+                background-color: lightblue;
+                height: 2.5em;
+            }
+            .uq_bio {
+                border: 1px solid white;
+                font-size: .8em;
+                margin-left: .75em;
+                width: 14.1em;
+                height: 16.5em;
+                background-color: lightgray;
+                padding: .5em;
+                border-radius: 0 0 10px 10px;
+            }
+        </style>
+    {% endif %}
+    </head>
+    <body>
+        <div class="grid">
+            <div class="profile">
+                    {% if owner %}
+                    <img class="profile_photo" src="{{owner.settings[0].photo}}">
+                    <div class="profile_description"><span class="online">ONLINE</span><br>{{owner.username}}</div>
+                    {% endif %}
+            </div>
+            <div class="task">
+                <div class="nav">
+                        <div class="page_title">Build-a-Blog</div>
+                        <div class="logo"><img src="https://pbs.twimg.com/profile_images/503950005028147201/u9CwXRoO.jpeg" class="logo_photo"></div>
+                        <div class="toolbar">
+                            <div class="toolbar_buttons">
+                                 <a href="/">Blogs</a>
+                                 <a href="/create">Create</a>
+                                 <a href="/settings">Settings</a>
+                                 <a href="/about">About</a>
+                        {% if owner %}
+                                 <a href="/logout">Logout</a>
+                        {% else %}
+                                 <a href="/login">Login</a>
+                        {% endif %}
+                                <a href="/register">Register</a>
+                            </div>
+                        </div>
+                </div>
+                    <div class="blank"></div>
+                    <div class="filter"></div>
+            </div>
+            {% if user_query %}
+            <div class="left">
+                    <img class="uq_photo" src="{{user_query.settings[0].photo}}">
+                    <div class="uq_photo_caption">Profile Picture</div>
+                    <div class"uq_wrapper">
+                    <div class="uq_profile_name">{{user_query.username}}</div>
+                    <div class="uq_bio">BIO:</div>
+                    </div>
+            </div>
+            {% elif blog_query %}
+            <div class="left">
+                    <div class="form_wrapper">
+                            <form action="./?id={{blog_query}}" method="POST">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td><textarea name="comment"></textarea></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <input type="submit" id="comment_submit" value="Comment">
+                            </form>
+                    </div>
+            </div>
+            {% else %}
+            <div class="left">
+                <div class="user_list_title">User List</div>
+                <ul class="user_list_users">
+                    {% for user in users %}
+                    <a href="./?user={{user.username}}"><li><img class="ul_photo" src="{{user.settings[0].photo}}"><div class="ul_name">{{user.username}}</div></li></a>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</HTML>

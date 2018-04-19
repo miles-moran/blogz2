@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<HTML>
+    <HEAD>
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
+        <style>
+            .grid {
+                display: grid;
+                grid-template-columns: 11em 60em 11em;
+                grid-template-rows: 5fr;
+                grid-template-areas: 
+                "profile task foreign"
+                "profile task foreign"
+                "blog blog user_list"
+                "blog2 blog2 user_list"
+                "blog3 blog3 user_list";
+                margin: 5em;
+                font-family: 'Work Sans', sans-serif;
+            }
+            .profile {
+                grid-area: profile;
+                background-color: gray;
+                height: 6em;
+                display: grid;
+                grid-template-columns: 1FR 1FR;
+                grid-template-areas: "profile_photo profile_description";
+                border-radius: 10px 0 0 10px;
+                border-right: 1px black solid;
+            }
+            .task {
+                grid-area: task;
+                background-color: gray;
+                display: grid;
+                grid-template-rows: 3fr 1fr 1fr;
+                grid-template-areas: "nav"
+                                   "blank"
+                                    "filter";
+                height: 6em;
+            }
+            .blog {
+                grid-area: blog;
+                background-color: rgb(184, 174, 174);
+                height: 11em;
+                border-radius: 10px 0 0 10px;
+                display: grid;
+                grid-template-columns: 1fr 5.5fr;
+                grid-template-areas: "blog_photo written";
+            }
+            .user_list {
+                grid-area: user_list;
+                background-color: rgb(184, 182, 182);
+                height: 100%;
+      
+                border-radius: 0 0 10px 0;
+            
+            }
+            .nav {
+                grid-area: nav;
+                display: grid;
+                grid-template-columns: 16em 3.5em 10em;
+                grid-template-rows: 1fr;
+                grid-template-areas: "page_title logo toolbar";
+                border-top: solid 1px black;
+                border-bottom: solid 1px black;
+            }
+            .filter {
+                grid-area: filter;
+                height: 1.8em;
+                background-color: white;
+                border-right: 1px black solid;
+             
+            }
+            .blank {
+                grid-area: blank;
+                background-color: white;
+                border-right: 1px black solid;
+            }
+            .blog_photo {
+                height: 10em;
+                width: 10em;
+                margin-top: .5em;
+                margin-left: .5em;
+                border: white solid .08em;
+            }
+            .profile_photo {
+                height: 5em;
+                width: 5em;
+                margin-top: .5em;
+                margin-left: .5em;
+                border: white solid .08em;
+                grid-area: "profile_photo";
+            }
+            .profile_description {
+                height: 5em;
+                width: 5em; 
+                margin-top: .5em;
+                margin-left: .5em;
+                border: black;
+                grid-area: "profile_description";
+            }
+            .page_title {
+                grid-area: page_title;
+                font-size: 2.3em;
+                padding-top: .2em;
+                padding-left: .4em;
+                color: white;
+            }
+            .logo {
+                grid-area: logo;
+            }
+            .toolbar {
+                grid-area: toolbar;
+            }
+            .logo_photo {
+                height: 3em;
+                width: 3em;
+                padding-top: .3em;
+            }
+            .toolbar a {
+                color: white;
+                text-decoration: none;
+                padding: .3em;
+                font-size: 1.4em;
+                margin-left: .7em;
+            }
+            .toolbar a:hover {
+                background-color: #111111;
+            }           
+            .toolbar_buttons {
+                padding-top: .93em;
+                width: 40em;
+            }
+            .blog_written {
+                padding-top: .3em;
+                padding-right: .7em;
+            }
+            .blog_title {
+                font-size: 1.6em;
+            }
+            .user_list_title {
+                text-align: center;
+                font-size: 2em;
+                text-decoration: underline;
+                color: white;
+            }
+            .blog2 {
+                grid-area: blog2;
+                background-color: rgb(209, 207, 207);
+                height: 11em;
+                border-radius: 10px 0 0 10px;
+                display: grid;
+                grid-template-columns: 1fr 5.5fr;
+                grid-template-areas: "blog_photo written";
+            }
+            .blog3 {
+                grid-area: blog3;
+                background-color: rgb(248, 248, 248);
+                height: 11em;
+                border-radius: 10px 0 0 10px;
+                display: grid;
+                grid-template-columns: 1fr 5.5fr;
+                grid-template-areas: "blog_photo written";
+            }
+            .user_list_users {
+                color: white;
+            }
+            .foreign_photo {
+                height: 5em;
+                width: 5em;
+                margin-top: .5em;
+                margin-left: .5em;
+              
+                grid-area: "profile_photo";
+            }
+            .foreign_description {
+                height: 5em;
+                width: 5em; 
+                margin-top: .5em;
+                margin-left: .5em;
+                border: black;
+                grid-area: "profile_description";
+            }
+            .foreign {
+                grid-area: foreign;
+                background-color: gray;
+                height: 6em;
+                display: grid;
+                grid-template-columns: 1FR 1FR;
+                grid-template-areas: "profile_photo profile_description";
+                border-radius: 0 10px 0 0;
+                border-top: 1px black solid;
+                border-right: 1px black solid;
+            }
+            
+        </style>
+    </HEAD>
+    <BODY>
+        <div class="grid">
+            
+            <div class="profile">
+                <img class="profile_photo" src="https://i.pinimg.com/236x/a3/77/61/a377612d97fcbe4bf9e05be264728130--ray-charles-blues-music.jpg">
+                <div class="profile_description">ONLINE<br>as<br>MILES</div>
+            </div>
+            <div class="task">
+                <div class="nav">
+                        <div class="page_title">Build-a-Blog</div>
+                        <div class="logo"><img src="https://pbs.twimg.com/profile_images/503950005028147201/u9CwXRoO.jpeg" class="logo_photo"></div>
+                        <div class="toolbar">
+                            <div class="toolbar_buttons">
+                                 <a href="#home">Home</a>
+                                 <a href="#news">Create</a>
+                                 <a href="#contact">About</a>
+                                 <a href="#about">Settings</a>
+                                 <a href="#about">Login</a>
+                                 <a href="#about">Register</a>
+                            </div>
+                        </div>
+                <div>
+                </div>
+                </div>
+                <div class="blank"></div>
+                <div class="filter"></div>
+            </div>
+            <div class="foreign">
+                    <img class="foreign_photo">
+                    <div class="foreign_description"></div>
+            </div>
+            <div class="user_list">
+                <div class="user_list_title">User List</div>
+                <ul class="user_list_users">
+                    <li>Test</li>
+                    <li>Test</li>
+                    <li>Test</li>
+                    <li>Test</li>
+                    <li>Test</li>
+                </ul>
+            </div>
+            {% block content %}
+             {% endblock %}
+        </div>
+    </BODY>
+</HTML>

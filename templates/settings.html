@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+<!-- extends -->
+{% block content %}
+<div class="content">
+    <div class="blogs">
+        User Profile URL:
+        <div>
+            <form action="/settings" method="POST">
+                <input type="text" name="photo_change">
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

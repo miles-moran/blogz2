@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+<!-- extends -->
+{% block content %}
+<style>
+    .error {
+        color: red;
+    }
+</style>
+<div class"content">
+    <div class="blogs">
+        {% if username_error == True %}
+        <style>
+        #username {
+            border-color: red;
+            border-style: solid;
+        }
+        </style>
+        {% endif %}
+
+        {% if password_error == True %}
+        <style>
+        #password {
+            border-color: red;
+            border-style: solid;
+        }
+        </style>
+        {% endif %}
+
+        {% if confirm_error == True %}
+        <style>
+        #confirm {
+            border-color: red;
+            border-style: solid;
+        }
+        </style>
+        {% endif %}
+
+        {% if email_error == True %}
+        <style>
+        #email {
+            border-color: red;
+            border-style: solid;
+        }
+        </style>
+        {% endif %}
+
+        <div class="user_list">
+        <h1 class="center">User Signup</h1>
+        <form action="/register" method="post">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="text" name="username" id="username" value="">
+        {% if username_error == True %}
+                        <span class="error">Username exceeds character limits or includes spaces</span>
+        {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type="password" value="" name="password" id="password">
+        {% if password_error == True %}
+                        <span class="error">Password exceeds character limits or includes spaces</span>
+        {% endif %}  
+                        </td> 
+                    </tr>
+                    <tr>
+                        <td>Confirm Password</td>
+                        <td>
+                        <input type="password" value="" name="confirm" id="confirm">
+        {% if confirm_error == True %}
+                        <span class="error"> Passwords do not match</span>
+        {% endif %}
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type="submit" value="Register" id="login_button">
+            {% if existing_username == True %}
+            <span class="error"> Username is taken</span>
+            {% endif %}
+    </div>
+</div>
+{% endblock %}

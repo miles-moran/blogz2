@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+<!-- extends -->
+{% block content %}
+<style>
+    #register_button {
+        text-decoration: none;
+    }
+</style>
+<div class="content">
+    <div class="blogs">
+        <div class="user_list">
+        <h1 class="center">Login</h1>
+        <form action="/login" method="POST">
+        <table>
+            <tbody>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="text" name="username" id="username" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" value="" name="password" id="password">
+                    </td> 
+                </tr>
+            </tbody>
+        <table>
+        <input type="submit" value = "Login"><a id="register_button" href="/register"><input type="button" value = "Register"></a>
+        </form>
+
+        {% if error == True %}
+        <div class="error">Invalid email or password!</div>
+        {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+<!-- extends -->
+{% block content %}
+    <div class="content">
+        {% for i in range(blogs|length) %}
+        <div class="blogs"> 
+            <div class="blog_photo_wrapper"><img class="blog_photo" src="{{blogs[i].photo}}"></div>
+            <div class="blog_written">
+                <div class="blog_title"><strong><a href="./?id={{blogs[i].id}}">{{blogs[i].title}}</a></strong> by <a href="./?user={{blogs[i].blog_owner.username}}"><i>{{blogs[i].blog_owner.username}}</i></a></div>
+                <hr>
+                <div class="blog_body">{{blogs[i].body}}</div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="comment_wrapper">
+            <div class="comment_section">
+                {% if blog_query %}
+                    {% if comments|length == 0 %}
+                        <div class="comments">No comments. Be the first!</div>
+                    {% endif %}
+                    {% for i in range(comments|length) %}
+                        <div class="comments">{{comments[i].body}}</div>
+                        <img src="{{comments[i].comment_owner.settings[0].photo}}" class="comment_img">
+                    {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
